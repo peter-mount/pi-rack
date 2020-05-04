@@ -41,9 +41,7 @@ do
     for num in 1 2 3 4
     do
       (
-        echo "$TITLE"
-        echo "$GENERATED"
-        echo "$USE"
+        echo "$HEADER"
         comp=0
         while [ $comp -le $num ]
         do

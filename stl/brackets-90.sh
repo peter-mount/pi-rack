@@ -30,9 +30,7 @@ do
 
         # The single component
         (
-          echo "$TITLE"
-          echo "$GENERATED"
-          echo "$USE"
+          echo "$HEADER"
           echo "bracket90(${thick},${holex},${holey});"
         ) >"${FILENAME}-${thick}-${holex}x${holey}-1.scad"
 
@@ -45,9 +43,7 @@ do
         if [ $holey -ge 5 ]; then Y=2; fi
         N=$((X*Y))
         (
-          echo "$TITLE"
-          echo "$GENERATED"
-          echo "$USE"
+          echo "$HEADER"
           echo "for(x=[0:${X}]) {"
           echo "  for(y=[0:${Y}]) {"
           echo "    translate([${Fx}*x,${Fy}*y,0])"
