@@ -1,4 +1,7 @@
 /*
+ * This code is licensed under the CC BY-NC-SA 4.0 (Attribution-NonCommercial-ShareAlike).
+ * Please read LICENCE.md for full details.
+ *
  * Raspberry PI mount
  *
  * Hat specification:

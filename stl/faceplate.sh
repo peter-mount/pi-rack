@@ -21,6 +21,7 @@ do
   (
     echo "$TITLE ${widthU}U wide"
     echo "$GENERATED"
+    echo "$LICENCE"
     echo "$USE"
     echo "FacePlate(${widthU});"
   ) >"${FILENAME}-${widthU}.scad"

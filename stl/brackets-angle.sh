@@ -34,6 +34,7 @@ do
     HEADER=$(
       echo "$TITLE ${thick}mm thick & ${widthU}U (${width}mm) wide"
       echo "$GENERATED"
+      echo "$LICENCE"
       echo "$USE"
     )
 

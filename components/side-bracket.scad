@@ -1,4 +1,7 @@
 /*
+ * This code is licensed under the CC BY-NC-SA 4.0 (Attribution-NonCommercial-ShareAlike).
+ * Please read LICENCE.md for full details.
+ *
  * This is specific to my use case but this provides the means to attach our angle
  * brackets to an existing rack system.
  *

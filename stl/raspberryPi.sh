@@ -18,6 +18,7 @@ do
   (
     echo "$TITLE ${widthU}U plain"
     echo "$GENERATED"
+    echo "$LICENCE"
     echo "$USE"
     echo "RaspberryPI(${widthU});"
   ) >"${DIRNAME}/${PROJECT}/${FILENAME}-${PROJECT}-${widthU}.scad"

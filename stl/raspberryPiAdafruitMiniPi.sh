@@ -18,6 +18,7 @@ do
   (
     echo "$TITLE ${widthU}U plain"
     echo "$GENERATED"
+    echo "$LICENCE"
     echo "$USE"
     echo "RaspberryPI_adafruitMiniPiTft135_240();"
   ) >"${DIRNAME}/${PROJECT}/${FILENAME}-${PROJECT}.scad"

@@ -17,6 +17,7 @@ FILENAME="${DIRNAME}/${FILENAME}"
 (
   echo "$TITLE"
   echo "$GENERATED"
+  echo "$LICENCE"
   echo "$USE"
   echo "for ( n = [0:1] ) {"
   echo "    rotate( [0, 0, 180*n] )"

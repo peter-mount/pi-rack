@@ -1,4 +1,7 @@
 /*
+ * This code is licensed under the CC BY-NC-SA 4.0 (Attribution-NonCommercial-ShareAlike).
+ * Please read LICENCE.md for full details.
+ *
  * This is a custom 2U tray for the Raspberry PI.
  *
  * I use this to house Raspberry PI 4B's. It's based on the led model

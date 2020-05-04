@@ -1,4 +1,7 @@
 /*
+ * This code is licensed under the CC BY-NC-SA 4.0 (Attribution-NonCommercial-ShareAlike).
+ * Please read LICENCE.md for full details.
+ *
  * A set of modules for creating bolt holes at specific sizes
  *
  * All of these modules will render flat on the XY plane and centered on the origin.

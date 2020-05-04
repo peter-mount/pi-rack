@@ -20,6 +20,7 @@ do
     HEADER=$(
       echo "$TITLE ${thick}mm thick & ${holes} bolt holes"
       echo "$GENERATED"
+      echo "$LICENCE"
       echo "$USE"
     )
 
