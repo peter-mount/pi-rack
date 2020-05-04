@@ -9,3 +9,4 @@ rm -rf */
 ./brackets-90.sh
 ./cabletray.sh
 ./faceplate.sh
+./raspberryPi.sh
