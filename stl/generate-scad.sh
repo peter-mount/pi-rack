@@ -10,3 +10,4 @@ rm -rf */
 ./cabletray.sh
 ./faceplate.sh
 ./raspberryPi.sh
+./raspberryPiAdafruitMiniPi.sh
