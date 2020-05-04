@@ -20,6 +20,8 @@ These are generic components which can be reused for various projects:
 
 | File | Content |
 | ----- | ----- |
+| brackets.scad | Various brackets |
+| | 
 
 ## Rack components
 These components form the racking system:
