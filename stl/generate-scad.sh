@@ -4,5 +4,6 @@
 #
 rm -rf */
 
-#./brackets-straight.sh
+./brackets-angle.sh
+./brackets-straight.sh
 ./brackets-90.sh

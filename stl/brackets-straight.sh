@@ -30,7 +30,7 @@ do
     ) >"${FILENAME}-${thick}-${holes}-1.scad"
 
     # The combination component
-    F=$(((holes*10)+5))
+    F=$(((holes*10)+10))
     X=4
     Y=3
     if [ $holes -ge 5 ]; then X=2;Y=5; fi

@@ -6,7 +6,7 @@
 GENERATED="// Generated $(date)"
 
 TITLE="// 90 degree bracket"
-USE="use <../components/brackets.scad>;"
+USE="use <../../../components/brackets.scad>;"
 FILENAME="brackets-90"
 
 DIRNAME=$(echo ${FILENAME}|tr - /)
@@ -37,8 +37,8 @@ do
         ) >"${FILENAME}-${thick}-${holex}x${holey}-1.scad"
 
         # The combination component
-        Fx=$(((holex*10)+5))
-        Fy=$(((holey*10)+5))
+        Fx=$(((holex*10)+10))
+        Fy=$(((holey*10)+10))
         X=4
         Y=3
         if [ $holex -ge 5 ]; then X=2; fi
@@ -51,7 +51,7 @@ do
           echo "for(x=[0:${X}]) {"
           echo "  for(y=[0:${Y}]) {"
           echo "    translate([${Fx}*x,${Fy}*y,0])"
-          echo "bracket90(${thick},${holex},${holey});"
+          echo "      bracket90(${thick},${holex},${holey});"
           echo "  }"
           echo "}"
         ) >"${FILENAME}-${thick}-${holex}x${holey}-${N}.scad"
