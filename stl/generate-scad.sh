@@ -11,3 +11,4 @@ rm -rf */
 ./faceplate.sh
 ./raspberryPi.sh
 ./raspberryPiAdafruitMiniPi.sh
+./side-bracket.sh
