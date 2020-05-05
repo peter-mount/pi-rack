@@ -2,7 +2,6 @@
 #
 # This generates all of the scad files in this directory
 #
-#rm -rf */
 
 export LICENCE=$(
   echo "// This code is licensed under the CC BY-NC-SA 4.0 (Attribution-NonCommercial-ShareAlike)."
