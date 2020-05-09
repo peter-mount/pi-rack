@@ -20,10 +20,10 @@
  * TFT screen: https://smile.amazon.co.uk/gp/product/B01MRQTMTD/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&psc=1
  */
  
-use <warpDisk.scad>;
-use <boltHoles.scad>;
-use <faceplate.scad>;
-use <raspberryPiTray.scad>;
+use <../warpDisk.scad>;
+use <../boltHoles.scad>;
+use <../faceplate.scad>;
+use <../raspberryPiTray.scad>;
 
 module ConsolePI() {
     // Dimensions of display in portrait mode
