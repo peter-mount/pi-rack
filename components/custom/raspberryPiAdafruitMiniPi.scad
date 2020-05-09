@@ -16,8 +16,8 @@
  *      get away with just 1 5V & 1 Ground bins being connected leaving the rest
  *      for further expansion - e.g. connecting the LED's or other hardware.
  */
-use <led.scad>;
-use <raspberryPiTray.scad>
+use <../led.scad>;
+use <../raspberryPiTray.scad>
 
 ledSize=3;
 
