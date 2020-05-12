@@ -51,6 +51,18 @@ module cableTray(u=5, d=120) {
             }
         }
 
+        // Helpers to pry off the print from the
+        // print bed
+        for(x = [0, w-1]) {
+            for(y=[50,80]) {
+                translate([x-1,y-2.5,-1])
+                    cube([3,5,2]);
+            }
+        }
+        for(x = [20, 50, 80, 110]) {
+            translate([x-2.5,d-2,-1])
+                cube([5,3,2]);
+        }
     }
 
     // Warp disks to stop the print warping
@@ -58,7 +70,6 @@ module cableTray(u=5, d=120) {
     WarpDisk(w+2, -2,0);
     WarpDisk( -2,d+2,0);
     WarpDisk(w+2,d+2,0);
-
 }
 
 cableTray(); //5,250);
