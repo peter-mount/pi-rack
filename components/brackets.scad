@@ -87,3 +87,66 @@ module AngleBracket(width, height, thickness) {
         WarpDisk(i*(width/2),-(height/2));
     }
 }
+
+/*
+ * Mark 2 mounting bracket replacing AngleBracket.
+ *
+ * The original is still useful but it's too flexible, rack trays
+ * don't align properly in the vertical axis & it's easy for
+ * an entire module to.
+ *
+ * width is the width of the bracket in mm
+ * upright 0 for just the front, 1 for an additional wall to allow the bolts to
+ *         to be permanently mounted to the rack (i.e. use a bolt to fasten
+ */
+module TrayBracket(width,upright=0) {
+    height=15;      // Height of bracket
+    thickness=2.5;  // thickness of bracket walls
+    boltSize = 4;   // M4 bolt size
+
+    u=width/30;
+
+    // Base
+    translate([-width/2,-height/2,0])
+        difference() {
+            cube([width, height, thickness]);
+
+            for(x=[0,(3*u)-1]) {
+                if( (x%3)==0 || (x%3)==2 || x==(3*u)-1 ) {
+                    translate([5+(10*x),10,0])
+                        MHole(boltSize,5);
+                }
+            }
+
+        }
+
+    // upright
+    translate([-width/2, -(height)/2+thickness, 0])
+        rotate([90,0,0])
+        difference() {
+            union() {
+                // Front upright
+                cube([width, height, thickness]);
+
+                // Rear upright (optional)
+                if(upright==1) {
+                    //translate([2*u,0,-thickness-5])
+                    //    cube([width-(4*u), height, thickness]);
+
+                    for(x=[1:(3*u)-2]) {
+                        if( (x%3)==1 ) {
+                            translate([5+(10*x)-u,0,-thickness-5])
+                                cube([2*u,height,thickness]);
+                        }
+                    }
+                }
+            }
+
+            for(x=[1:(3*u)-2]) {
+                if( (x%3)==1 ) {
+                    translate([5+(10*x),10.5,-height])
+                        MHole(boltSize,height+10);
+                }
+            }
+        }
+}
