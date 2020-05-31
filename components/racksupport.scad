@@ -84,12 +84,14 @@ module ExampleRack1() {
         //    DualRackSupport();
 
         // Partial left panel
-        translate([ -trayThickness, 0, trayThickness/2])
-            FullSidePanel(41, uHeight+21-trayThickness, trayThickness, 0);
+        translate([ 0, 28, trayThickness])
+            SideBracket2();
+            //FullSidePanel(55, uHeight+21-trayThickness, trayThickness, 0);
 
         // Partial right panel
-        translate([trayWidth,0,trayThickness/2])
-            FullSidePanel(41, uHeight+21-trayThickness, trayThickness, 1);
+        translate([trayWidth, 28,trayThickness/2])
+            SideBracket2();
+            //FullSidePanel(55, uHeight+21-trayThickness, trayThickness, 1);
     } else {
         // Full left panel
         translate([ -trayThickness, 0, 0])
@@ -116,6 +118,13 @@ module RackSupportPrint() {
 ExampleRack1();
 //RackSupportPrint();
 //FullSidePanel(trayDepth, uHeight, trayThickness);
+
+/*
+for(x=[0:3]) {
+    translate([14*x,0,0])
+        SideBracket2();
+}
+*/
 
 /*
 for(c=[0:0]) {
