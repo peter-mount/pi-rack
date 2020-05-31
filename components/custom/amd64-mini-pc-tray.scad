@@ -85,7 +85,7 @@ module WintelPro() {
 }
 
 rotate([90,0,0]) WintelPro();
-WarpDisk(-22,2,-5);
-WarpDisk(-22,-63,-5);
-WarpDisk(113,2,-5);
-WarpDisk(113,-63,-5);
+WarpDisk(-22,  2,-5);
+WarpDisk(-22,-62,-5);
+WarpDisk(112,  2,-5);
+WarpDisk(112,-62,-5);
