@@ -29,7 +29,7 @@ module FacePlate(width, height=1, holes, fpt=facePlateThickness) {
         difference() {
             cube([ h,
                    fpt,
-                   width * rack1UWidth ]);
+                   (width * rack1UWidth) -1 ]);
 
             for( x = holeStep ) {
                 translate([10, 5, 5+(10*x)])

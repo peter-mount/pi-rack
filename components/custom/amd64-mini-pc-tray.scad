@@ -19,10 +19,10 @@
  *
  */
  
-use <warpDisk.scad>;
-use <boltHoles.scad>;
-use <faceplate.scad>;
-use <raspberryPiTray.scad>;
+use <../warpDisk.scad>;
+use <../boltHoles.scad>;
+use <../faceplate.scad>;
+use <../raspberryPiTray.scad>;
 
 module WintelPro() {
     union() {
