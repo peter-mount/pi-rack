@@ -66,3 +66,53 @@ module FullSidePanel(width, height, thickness,side=0) {
     }
 
 }
+
+/*
+ * New mini side-bracket
+ *
+ * The above failed as, although it held the top/bottom together it was weak
+ * (one broke as I installed it) and makes the rack too wide (I have 300mm wide to
+ * fit this in).
+ *
+ * So this design replaces it with a simple bracket that attches to the side of the
+ * cable tray, so it's the tray thats mounted to the exterior not the entire rack.
+ */
+module SideBracket2() {
+    width=45;
+    height=15;
+    depth=10;
+    thickness=3;
+    difference() {
+        union() {
+            cube([depth,width,thickness]);
+            translate([0,1+width/4,0]) {
+                cube([2*depth/3,(width/2)-2,thickness+3]);
+                cube([thickness,(width/2)-2,height]);
+                for(x=[0, (width/2)-4]) {
+                    translate([0,x,0])
+                        cube([depth, 2, height]);
+                }
+            }
+        }
+
+        // Side mount
+        translate([0,width/2,2*height/3])
+            rotate([90,0,90])
+            for(x=[-3.5,3.5]) {
+                translate([x,0,-1])
+                    MHole(3,thickness+2);
+            }
+
+        // Cable Tray mount
+        for(x=[7, width-8]) {
+            translate([depth/2,x,0])
+                MHole(4,5);
+        }
+    }
+
+    for(x=[-2,depth+2]) {
+        for(y=[width+3,-3]) {
+            WarpDisk(x,y, 0);
+        }
+    }
+}
