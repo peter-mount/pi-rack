@@ -15,16 +15,16 @@
  *       but as this is custom I've left it as is.
  */
 
+use <warpDisk.scad>;
+use <boltHoles.scad>;
+use <side-mount.scad>;
+
 /*
  * Mounting bracket
  */
 width=40;
 height=20;
 t=5;
-
-module warpDisk(x,y) {
-    translate([x,y,0]) cylinder(r=5,h=.6,$fn=30);
-}
 
 /*
  * holderDiam is the diameter of round holder.
@@ -38,11 +38,23 @@ holderDiam=41;
 holderThickness=3;
 
 module bracket( top ) {
-    rotate([ 90*top, 0, 0]) union() {
-        slottedPanel();
-        rotate([90,0,0]) translate([0,0,-t]) slottedPanel();
-    }
+    translate([6.5+holderThickness+holderDiam/2,0,0])
+        difference() {
+            union() {
+                cube([t,width+5,height]);
+                cube([t*4,2.5+holderDiam/2,height]);
+                //cube([t*4,width-2.5,2]);
+            }
+            translate([5,10+(width+10)/2,height+3])
+                rotate([180,90,0])
+                rotate([0,0,90])
+                SideMount(t);
+        }
     /*
+    rotate([ 90*top, 0, 0]) union() {
+        //slottedPanel();
+        //rotate([90,0,0]) translate([0,0,-t]) slottedPanel();
+    }
     warpDisk(-3,-3);
     warpDisk(-3,height+3);
     warpDisk(width+3,-3);
@@ -105,7 +117,7 @@ module roundHolder(side, top) {
 
         // Cut away the unwanted half
         translate([side ? 0 : x, y-hr-15, -1])
-            cube([ side ? x : hr+10, (hr+15)*2, h+2 ]);
+            cube([ side ? x : hr+10, (hr+30)*2, h+2 ]);
     }
 }
 
@@ -134,7 +146,7 @@ module cylinderBoltMount( align ) {
 
 //cylinderBoltMount();
 //bracket();
-for ( n = [0:1] ) {
+for ( n = [0:0] ) {
     rotate( [0, 0, 180*n] )
     translate([ -40*n, -70*n, 0 ])
     union() {
