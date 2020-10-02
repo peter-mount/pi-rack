@@ -135,8 +135,8 @@ module TrayBracket(width,upright=0) {
 
                     for(x=[1:(3*u)-2]) {
                         if( (x%3)==1 ) {
-                            translate([5+(10*x)-u,0,-thickness-5])
-                                cube([2*u,height,thickness]);
+                            translate([10*x,0,-thickness-5])
+                                cube([10,height,thickness]);
                         }
                     }
                 }

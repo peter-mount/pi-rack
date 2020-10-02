@@ -34,6 +34,10 @@ module RaspberryPI( height=1 ) {
                 WarpDisk(0,80,0);
                 //WarpDisk(57,0,0);
                 //WarpDisk(0,0,0);
+                WarpDisk(97,-6,0);
+                WarpDisk(97, 4,0);
+                WarpDisk(-37,-6,0);
+                WarpDisk(-37, 4,0);
             }
 
             // cut out unwanted space to save plastic
