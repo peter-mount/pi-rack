@@ -30,6 +30,7 @@ module RaspberryPI( height=1 ) {
             // frame
             union() {
                 cube([ 57, 76, 5 ]);
+                /*
                 WarpDisk(57,80,0);
                 WarpDisk(0,80,0);
                 //WarpDisk(57,0,0);
@@ -38,6 +39,7 @@ module RaspberryPI( height=1 ) {
                 WarpDisk(97, 4,0);
                 WarpDisk(-37,-6,0);
                 WarpDisk(-37, 4,0);
+                 */
             }
 
             // cut out unwanted space to save plastic
