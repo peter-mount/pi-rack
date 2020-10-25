@@ -38,18 +38,20 @@ trayDepth       = 120;
 trayWidthU      = 5;
 trayWidth       = trayWidthU * uWidth;
 
+sideHeight = 64;
+
 // contains the 4 core components joined together
 module rack() {
     // Left ear & mount
     translate([21,0,0]) RackEar();
-    translate([29,0,0]) RackTrayMountLeft(trayDepth);
+    translate([29,0,0]) RackTrayMount(2,trayDepth, sideHeight);
 
     // Central 5U brackets
     translate([29+60,0,0]) RackTrayBracket();
     translate([29+60+(5*uWidth),0,0]) RackTrayBracket();
 
     // Right ear & mount
-    translate([29+60+(10*uWidth),0,0]) RackTrayMountRight(trayDepth);
+    translate([29+60+(10*uWidth),0,0]) RackTrayMount(1,trayDepth, sideHeight);
     rotate([0,180,0]) translate([-(29+60+(10*uWidth)+70)+2,0,-44]) RackEar();
 }
 
@@ -60,7 +62,7 @@ rack();
 rotate([0,180,0]) translate([-478,0,-130]) rack();
 
 // Copy below to show alignment of 2 racks stacked together
-rotate([0,180,0]) translate([-478,0,+1]) rack();
+//rotate([0,180,0]) translate([-478,0,+1]) rack();
 
 // Some example trays in position
 rotate([0,90,0]) translate([-110,0,60])
