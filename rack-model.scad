@@ -51,5 +51,11 @@ module rack() {
     rotate([0,180,0]) translate([-(29+60+(10*uWidth)+70)+2,0,-44]) RackEar();
 }
 
+// Entire rack at base
 rack();
-//rotate([0,180,0]) translate([-478,0,-100+11]) rack();
+
+// Copy above to test alignment with components
+rotate([0,180,0]) translate([-478,0,-100+11]) rack();
+
+// Copy below to show alignment of 2 racks stacked together
+rotate([0,180,0]) translate([-478,0,+1]) rack();

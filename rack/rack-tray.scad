@@ -33,11 +33,26 @@ module RackTrayBracketInterlock(ox,dh) {
     }
 }
 
+// Rack hole, a MHole(4,5) with a cutout to hold the bolt head
+module RackHole() {
+    MHole(4,trayThickness*2);
+    MHole(8,trayThickness);
+}
+
+// RackBracket - cube to contain the RackHole
+module RackHoleBracket(width=10,depth=trayDepth-2.5) {
+    cube([width,depth,trayThickness*2]);
+}
+
 // Tray bracket
 // trayWidthU is how wide in U's the tray is
 // sides = which sides have holes, 1=left, 2=right, 3=both
 module RackTrayBracket(trayWidthU=5,sides=3) {
     trayWidth = trayWidthU * uWidth;
+
+    // Extra thick for the holes
+    holeX1 = 5;
+    holeX2 = trayWidth-5;
 
     difference() {
         union() {
@@ -46,8 +61,14 @@ module RackTrayBracket(trayWidthU=5,sides=3) {
 
             cube([trayWidth,trayDepth,trayThickness]);
 
-            // Interlock males on right hand side
-            //RackTrayBracketInterlock(trayWidth,0);
+            translate([0,trayDepth-12.5,0]) RackHoleBracket(trayWidth,10);
+
+            if( sides==1 || sides==3 ) {
+                translate([holeX1-5,0,0]) RackHoleBracket();
+            }
+            if( sides==2 || sides==3 ) {
+                translate([holeX2-5,0,0]) RackHoleBracket();
+            }
         }
 
         // Interlock females on left hand side
@@ -57,19 +78,18 @@ module RackTrayBracket(trayWidthU=5,sides=3) {
         for(x=[1:10]) {
             if( (x%3)==0 ) {
                 if( sides==1 || sides==3 ) {
-                    translate([5, 5+(10*x),0]) MHole(4,5);
+                    translate([holeX1, 5+(10*x),0]) RackHole();
                 }
                 if( sides==2 || sides==3 ) {
-                    translate([trayWidth-5, 5+(10*x),0]) MHole(4,5);
+                    translate([holeX2, 5+(10*x),0]) RackHole();
                 }
             }
         }
 
         // Holes on back edge
         for(x=[0:14]) {
-            if( (x%3)==0 || x==(15)-1 ) {
-                //translate([5+(10*x),15,0]) MHole(4,5);
-                translate([5+(10*x),trayDepth-7.5,0]) MHole(4,5);
+            if( (x%3)==1  ) {
+                translate([5+(10*x),trayDepth-7.5,0]) RackHole();
             }
         }
 
