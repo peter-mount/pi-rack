@@ -11,31 +11,24 @@ use <rack-tray.scad>
 use <rack-ear.scad>
 
 /*
- * Left hand rack tray mount
+ * The rack tray mount. This is a 2U mount with a side which can be attached to the
+ * bunny ears for mounting to the rack.
  *
- * depth    depth of tray/mount in mm
- */
-module RackTrayMountLeft(depth,height=44) {
-    union() {
-        RackTrayBracket(2,2);
-        difference() {
-            cube([5,depth,height]);
-            RackEarHoles(1.9);
-        }
-    }
-}
-
-/*
- * Left hand rack tray mount
+ * Note: Although this is 2U, the outer 1U isn't full (due to the side panel).
+ *       The outer 1U would need to be blanked off with a custom panel, although it
+ *       could be used for LED's, switches etc.
  *
+ * side     1=right, 2=left
  * depth    depth of tray/mount in mm
+ * height   height of side panel, default 44mm
  */
-module RackTrayMountRight(depth,height=44) {
+module RackTrayMount(side,depth,height=44) {
     union() {
-        RackTrayBracket(2,1);
-        translate([55,0,0]) difference() {
-            cube([5,depth,height]);
-            RackEarHoles(1.9);
-        }
+        RackTrayBracket(2,side);
+        translate([ side==1 ? 55 : 0, 0, 0])
+            difference() {
+                cube([5,depth,height]);
+                RackEarHoles(1.9);
+            }
     }
 }
