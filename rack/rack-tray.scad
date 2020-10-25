@@ -34,13 +34,15 @@ module RackTrayBracketInterlock(ox,dh) {
 }
 
 // Tray bracket
-module RackTrayBracket(trayWidthU=5) {
+// trayWidthU is how wide in U's the tray is
+// sides = which sides have holes, 1=left, 2=right, 3=both
+module RackTrayBracket(trayWidthU=5,sides=3) {
     trayWidth = trayWidthU * uWidth;
 
     difference() {
         union() {
             translate([trayWidth/2,15/2,0])
-                TrayBracket(trayWidth,1,60);
+                TrayBracket(trayWidth,1);//,60);
 
             cube([trayWidth,trayDepth,trayThickness]);
 
@@ -54,8 +56,12 @@ module RackTrayBracket(trayWidthU=5) {
         // bolt holes on edges
         for(x=[1:10]) {
             if( (x%3)==0 ) {
-                translate([5, 5+(10*x),0]) MHole(4,5);
-                translate([trayWidth-5, 5+(10*x),0]) MHole(4,5);
+                if( sides==1 || sides==3 ) {
+                    translate([5, 5+(10*x),0]) MHole(4,5);
+                }
+                if( sides==2 || sides==3 ) {
+                    translate([trayWidth-5, 5+(10*x),0]) MHole(4,5);
+                }
             }
         }
 

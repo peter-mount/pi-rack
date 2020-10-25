@@ -17,8 +17,7 @@ use <rack-ear.scad>
  */
 module RackTrayMountLeft(depth,height=44) {
     union() {
-        translate([-0,0,0]) cube([50,depth,5]);
-        RackTrayBracket(2);
+        RackTrayBracket(2,2);
         difference() {
             cube([5,depth,height]);
             RackEarHoles(1.9);
@@ -33,8 +32,7 @@ module RackTrayMountLeft(depth,height=44) {
  */
 module RackTrayMountRight(depth,height=44) {
     union() {
-        translate([-0,0,0]) cube([50,depth,5]);
-        RackTrayBracket(2);
+        RackTrayBracket(2,1);
         translate([55,0,0]) difference() {
             cube([5,depth,height]);
             RackEarHoles(1.9);

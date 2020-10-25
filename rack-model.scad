@@ -52,4 +52,4 @@ module rack() {
 }
 
 rack();
-rotate([0,180,0]) translate([-478,0,-100+11]) rack();
+//rotate([0,180,0]) translate([-478,0,-100+11]) rack();
