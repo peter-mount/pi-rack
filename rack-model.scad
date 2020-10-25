@@ -24,6 +24,8 @@ use <rack/rack-bracket.scad>
 use <rack/rack-ear.scad>
 use <rack/rack-tray.scad>
 
+use <components/raspberryPiTray.scad>
+
 // Constant width of 1U
 uWidth          = 30;   //  30mm wide
 uHeight         = 120;  // 130mm high (90mm + 20mm for the mounts)
@@ -55,7 +57,14 @@ module rack() {
 rack();
 
 // Copy above to test alignment with components
-rotate([0,180,0]) translate([-478,0,-100+11]) rack();
+rotate([0,180,0]) translate([-478,0,-130]) rack();
 
 // Copy below to show alignment of 2 racks stacked together
 rotate([0,180,0]) translate([-478,0,+1]) rack();
+
+// Some example trays in position
+rotate([0,90,0]) translate([-110,0,60])
+    for(x=[0:11]) {
+        translate([0,0,uWidth*x])
+            RaspberryPI(1);
+    }
