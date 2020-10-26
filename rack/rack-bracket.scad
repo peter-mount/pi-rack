@@ -23,9 +23,11 @@ use <rack-ear.scad>
  * height   height of side panel, default 44mm
  */
 module RackTrayMount(side,depth,height=44) {
+    // Width of the mount in U
+    rackWidthU=5;
     union() {
-        RackTrayBracket(2,side);
-        translate([ side==1 ? 55 : 0, 0, 0])
+        RackTrayBracket(rackWidthU,side);
+        translate([ side==1 ? ((rackWidthU*30)-5) : 0, 0, 0])
             difference() {
                 cube([5,depth,height]);
                 RackEarHoles(1.9);

@@ -38,7 +38,7 @@ trayDepth       = 120;
 trayWidthU      = 5;
 trayWidth       = trayWidthU * uWidth;
 
-sideHeight = 64;
+sideHeight = 65;
 
 // contains the 4 core components joined together
 module rack() {
@@ -46,27 +46,32 @@ module rack() {
     translate([21,0,0]) RackEar();
     translate([29,0,0]) RackTrayMount(2,trayDepth, sideHeight);
 
-    // Central 5U brackets
-    translate([29+60,0,0]) RackTrayBracket();
-    translate([29+60+(5*uWidth),0,0]) RackTrayBracket();
+    // Central 4U brackets
+    translate([29+60+(3*uWidth),0,0]) RackTrayBracket(4);
 
     // Right ear & mount
-    translate([29+60+(10*uWidth),0,0]) RackTrayMount(1,trayDepth, sideHeight);
+    translate([29+60+(7*uWidth),0,0]) RackTrayMount(1,trayDepth, sideHeight);
     rotate([0,180,0]) translate([-(29+60+(10*uWidth)+70)+2,0,-44]) RackEar();
 }
 
+/**/
 // Entire rack at base
 rack();
 
 // Copy above to test alignment with components
-rotate([0,180,0]) translate([-478,0,-130]) rack();
+rotate([0,180,0]) translate([-478,0,-131]) rack();
 
 // Copy below to show alignment of 2 racks stacked together
-//rotate([0,180,0]) translate([-478,0,+1]) rack();
+rotate([0,180,0]) translate([-478,0,+1]) rack();
 
 // Some example trays in position
+/*
 rotate([0,90,0]) translate([-110,0,60])
     for(x=[0:11]) {
         translate([0,0,uWidth*x])
             RaspberryPI(1);
     }
+*/
+
+//RackEar();
+//RackTrayMount(2,trayDepth,sideHeight);

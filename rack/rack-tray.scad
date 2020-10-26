@@ -14,11 +14,10 @@ uHeight         = 120;  // 130mm high (90mm + 20mm for the mounts)
 
 // Tray, faceplate thickness
 trayThickness   = 5;
+trayBaseThickness = 3;
 
 // Default tray dimensions
 trayDepth       = 120;
-//trayWidthU      = 5;
-//trayWidth       = trayWidthU * uWidth;
 
 module Interlock(thickness) {
     difference() {
@@ -40,8 +39,8 @@ module RackHole() {
 }
 
 // RackBracket - cube to contain the RackHole
-module RackHoleBracket(width=10,depth=trayDepth-2.5) {
-    cube([width,depth,trayThickness*2]);
+module RackHoleBracket(width=10,depth=trayDepth-15,thickness=trayThickness*2) {
+    cube([width,depth,thickness]);
 }
 
 // Tray bracket
@@ -59,9 +58,7 @@ module RackTrayBracket(trayWidthU=5,sides=3) {
             translate([trayWidth/2,15/2,0])
                 TrayBracket(trayWidth,1);//,60);
 
-            cube([trayWidth,trayDepth,trayThickness]);
-
-            translate([0,trayDepth-12.5,0]) RackHoleBracket(trayWidth,10);
+            cube([trayWidth,trayDepth,trayBaseThickness]);
 
             if( sides==1 || sides==3 ) {
                 translate([holeX1-5,0,0]) RackHoleBracket();
@@ -70,9 +67,6 @@ module RackTrayBracket(trayWidthU=5,sides=3) {
                 translate([holeX2-5,0,0]) RackHoleBracket();
             }
         }
-
-        // Interlock females on left hand side
-        //RackTrayBracketInterlock(0,1);
 
         // bolt holes on edges
         for(x=[1:10]) {
@@ -83,13 +77,6 @@ module RackTrayBracket(trayWidthU=5,sides=3) {
                 if( sides==2 || sides==3 ) {
                     translate([holeX2, 5+(10*x),0]) RackHole();
                 }
-            }
-        }
-
-        // Holes on back edge
-        for(x=[0:14]) {
-            if( (x%3)==1  ) {
-                translate([5+(10*x),trayDepth-7.5,0]) RackHole();
             }
         }
 
