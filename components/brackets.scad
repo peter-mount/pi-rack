@@ -108,17 +108,7 @@ module TrayBracket(width,upright=0) {
 
     // Base
     translate([-width/2,-height/2,0])
-        difference() {
-            cube([width, height, thickness]);
-
-            for(x=[0,(3*u)-1]) {
-                if( (x%3)==0 || (x%3)==2 || x==(3*u)-1 ) {
-                    translate([5+(10*x),10,0])
-                        MHole(boltSize,5);
-                }
-            }
-
-        }
+        cube([width, height, thickness]);
 
     // upright
     translate([-width/2, -(height)/2+thickness, 0])
@@ -130,8 +120,6 @@ module TrayBracket(width,upright=0) {
 
                 // Rear upright (optional)
                 if(upright==1) {
-                    //translate([2*u,0,-thickness-5])
-                    //    cube([width-(4*u), height, thickness]);
 
                     for(x=[1:(3*u)-2]) {
                         if( (x%3)==1 ) {
