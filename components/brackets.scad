@@ -121,12 +121,14 @@ module TrayBracket(width,upright=0) {
                 // Rear upright (optional)
                 if(upright==1) {
 
-                    for(x=[1:(3*u)-2]) {
-                        if( (x%3)==1 ) {
-                            translate([10*x,0,-thickness-5])
-                                cube([10,height,thickness]);
-                        }
+                    translate([5,0,-thickness-5]) {
+                        cube([width-10,height,thickness]);
+                        translate([0,10,1.25]) cylinder(r=5,h=thickness,center=true);
+                        translate([width-10,10,1.25]) cylinder(r=5,h=thickness,center=true);
                     }
+
+                    // Lower section to allow access to bolt to hot glue in place
+                    translate([0,0,-7.5]) cube([width,10,10]);
                 }
             }
 
