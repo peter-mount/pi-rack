@@ -34,9 +34,9 @@ module RackEar(radius=m3_clearance_rad) {
         // The 3 mounting holes. These should accept an M6 bolt which is fine as most
         // Racks use either M6 or M5 bolts/cage-nuts
         for(y=[0:2]) {
-            translate([7,frontThickness-4,6.35+(y*15.875)])
+            translate([7-4,frontThickness-4,6.35+(y*15.875)])
                 rotate([90,0,0]) {
-                    for(x=[0:3]) {
+                    for(x=[0:6]) {
                         translate([x,0,0])
                             cylinder(r=m6_clearance_rad, h=frontThickness+4, center = true, $fn=25);
                     }
