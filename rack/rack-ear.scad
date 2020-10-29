@@ -22,13 +22,12 @@ m6_clearance_rad=3.7;
 /*
  * A 1U RackEar
  *
- * frontThickness   Thickness of front part to attach to rack.
- *                  5mm is ok for light loads
- *                  7mm for heavier loads
  * radius           radius of mounting hole to component. Best keep to radius of bolt + 0.4mm
  *                  Default is for M3 bolt
  */
-module RackEar(frontThickness=5,radius=m3_clearance_rad) {
+module RackEar(radius=m3_clearance_rad) {
+    // More than 5mm and standard bolts won't reach the cage nuts
+    frontThickness=5;
     // The bunny ear
     translate([-16,0,0]) difference() {
         translate([-5,0,0]) cube([28,frontThickness,44]);
