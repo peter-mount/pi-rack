@@ -52,9 +52,10 @@ module rack() {
     // Right ear & mount
     translate([29+60+(7*uWidth),0,0]) RackTrayMount(1,trayDepth, sideHeight);
     rotate([0,180,0]) translate([-(29+60+(10*uWidth)+70)+2,0,-44]) RackEar();
+
 }
 
-/**/
+/*
 // Entire rack at base
 rack();
 
@@ -63,7 +64,7 @@ rotate([0,180,0]) translate([-478,0,-131]) rack();
 
 // Copy below to show alignment of 2 racks stacked together
 rotate([0,180,0]) translate([-478,0,+1]) rack();
-
+*/
 // Some example trays in position
 /*
 rotate([0,90,0]) translate([-110,0,60])
@@ -73,5 +74,14 @@ rotate([0,90,0]) translate([-110,0,60])
     }
 */
 
+// 13mm
+// 13 - 5 - 5 = 3
+//
+
 //RackEar();
 //RackTrayMount(2,trayDepth,sideHeight);
+RackTrayMount(1,trayDepth,sideHeight);
+//RackTrayBracket(4);
+//translate([4*uWidth,0,0]) RackTrayBracket(4);
+
+//RackTrayShim();

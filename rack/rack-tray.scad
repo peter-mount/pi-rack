@@ -91,3 +91,23 @@ module RackTrayBracket(trayWidthU=5,sides=3) {
         }
     }
 }
+
+/*
+ * RackTrayShim goes over each side to allow bolts to hold 2 components together
+ */
+module RackTrayShim() {
+    difference() {
+        cube([20,trayDepth-30,3]);
+        for(x=[0:10]) {
+            if( (x%3)==0 ) {
+                translate([0,20+(10*x),0]) {
+                    translate([15,0,0]) MHole(4,trayThickness*2);
+                    translate([5,0,0]) MHole(4,trayThickness*2);
+                }
+            }
+        }
+
+        translate([8,-1,-1]) cube([3,5,2]);
+        translate([8,trayDepth-30-2.5,-1]) cube([3,5,2]);
+    }
+}

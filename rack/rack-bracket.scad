@@ -27,7 +27,7 @@ module RackTrayMount(side,depth,height=44) {
     rackWidthU=5;
     union() {
         RackTrayBracket(rackWidthU,side);
-        translate([ side==1 ? ((rackWidthU*30)-5) : 0, 0, 0])
+        translate([ side==1 ? ((rackWidthU*30)) : -5, 0, 0])
             difference() {
                 cube([5,depth,height]);
                 RackEarHoles(1.9);
