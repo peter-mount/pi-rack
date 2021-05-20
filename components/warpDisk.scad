@@ -7,7 +7,7 @@
  * warping of the model
  */
 
-module WarpDisk(x,y,z) {
-    translate([x,y,z]) cylinder(r=5,h=.6,$fn=30);
+module WarpDisk(x,y,z,r=5) {
+    translate([x,y,z]) cylinder(r=r,h=.6,$fn=30);
 }
 
