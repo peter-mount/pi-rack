@@ -16,6 +16,7 @@ use <../components/brackets.scad>
 use <../components/boltHoles.scad>
 use <../components/warpDisk.scad>
 use <../rack/rack-bracket.scad>
+use <../rack/rack-ear.scad>
 use <../rack/rack-tray.scad>
 
 // Constant width of 1U
